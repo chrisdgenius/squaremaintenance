@@ -1,0 +1,22 @@
+<h1>{{formTitle}} Post</h1>
+<hr />
+<form #myForm="ngForm" (ngSubmit)="myForm.form.valid  && saveBlogPost()" accept-charset="UTF-8" novalidate>
+    <input type="text" class="blogHeader" placeholder="Add title..." class="form-control" name="postTitle"
+        [(ngModel)]="postData.title" #postTitle="ngModel" required />
+    <span class="text-danger" *ngIf="myForm.submitted && postTitle.errors?.['required']">  Title is required </span>
+    <br />
+    <div class="form-group ck-editor__editable">
+        <ckeditor 
+        [config]="ckeConfig" 
+        [(ngModel)]="postData.content" 
+        data="" name="ngModel" 
+        debounce="300"
+        [editor]="Editor"> 
+    </ckeditor>
+    </div>
+    <br />
+    <div class="form-group">
+        <button type="submit" mat-raised-button color="primary">Save</button>
+        <button type=" button" mat-raised-button color="warn" class="btn2" (click)="cancel()">CANCEL</button>
+    </div>
+</form>
