@@ -31,3 +31,15 @@ jobs:
           context: .
           push: true
           tags: chrisdgenius/blog:latest
+
+      - name: Install Kubectl
+      # install kubeclt
+          run:
+            curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+      # make it executable
+            chmod +x kubectl
+      # move it to executable directory
+            mv. /usr/local/bin/
+      # test the kubectl
+            kubectl
+        
