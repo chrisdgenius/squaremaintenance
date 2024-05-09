@@ -36,7 +36,7 @@ jobs:
 
           # move it to executable directory
 
-          mv ./usr/local/bin/
+          mv ./kubectl /usr/local/bin/
 
           # test the kubectl
 
